@@ -1,0 +1,49 @@
+<h2>Sign Up</h2>
+
+<mat-card fxLayout="row" fxLayoutAlign="start">
+
+  <form fxLayout="column" fxLayoutAlign="flex-start flex-start" style="font-size: .8em;" [formGroup]="signupForm" (ngSubmit)='onSubmit()'>
+
+    <mat-form-field>
+      <input
+        type="email"
+        matInput
+        placeholder="Email"
+        name="email"
+        formControlName="email"
+        >
+        <!-- <mat-error *ngIf="emailInput.hasError('required')">Field must not be empty.</mat-error>
+        <mat-error *ngIf="!emailInput.hasError('required')">Email is invalid.</mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        type="text"
+        id="username"
+        formControlName="username"
+        placeholder="Username"
+        matInput
+        name="username">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        type="password"
+        matInput
+        placeholder="Password"
+        name="password1"
+        formControlName="password1">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        type="password"
+        matInput
+        placeholder="Password Again"
+        name="password2"
+        formControlName="password2">
+    </mat-form-field>
+
+    <button type="submit" mat-raised-button color="primary">Sign Up</button>
+  </form>
+</mat-card>

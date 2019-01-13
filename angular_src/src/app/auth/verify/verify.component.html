@@ -1,0 +1,29 @@
+
+
+<div *ngIf='!key'>
+  <h2>Verify your Account</h2>
+
+  <mat-card fxLayout="row" fxLayoutAlign="start">
+
+    <form fxLayout="column" class="" style="width: 100%;" fxLayoutAlign="flex-start flex-start" [formGroup]="keyForm" (ngSubmit)='onSubmit()'>
+
+      <mat-form-field style="width: 100%; max-width: 1000px;">
+        <input
+          type="text"
+          matInput
+          placeholder="Key"
+          name="key"
+          formControlName="key"
+          >
+      </mat-form-field>
+
+      <button type="submit" mat-raised-button color="primary">Verify</button>
+    </form>
+  </mat-card>
+</div><!-- if no key is present -->
+
+
+<div *ngIf='key'>
+  <h2>Thanks for verifying with us.</h2>
+  <button mat-stroked-button routerLink="/profile" color="primary">User Profile</button>
+</div><!-- if no key is present -->

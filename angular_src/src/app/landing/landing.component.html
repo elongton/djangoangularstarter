@@ -1,0 +1,44 @@
+<main style="width: 100%;">
+  <div class="container" fxLayout="row">
+    <div class="" fxFlex>
+      <button mat-stroked-button color="primary" routerLink="login">Login</button>
+      <br>
+      <button mat-stroked-button color="primary" routerLink="signup">Signup</button>
+      <br>
+      <button mat-stroked-button color="primary" routerLink="verify">Manual Verify</button>
+      <br>
+      <button mat-stroked-button color="primary" (click)="resetPassword()"  [disabled]="!(authState | async).authenticated">Password Reset</button>
+      <br>
+      <button mat-stroked-button color="primary" routerLink="change"   [disabled]="!(authState | async).authenticated" >Password Change</button>
+    </div>
+
+
+
+    <div fxFlex>
+      <button mat-stroked-button color="primary" routerLink="profile" [disabled]="!(authState | async).authenticated" >User Profile</button>
+      <br>
+    </div>
+
+
+
+  </div><!--container-->
+
+
+  <hr><!--SEPARATOR-->
+
+  <h3>Cookie Testing</h3>
+  <div class="container" fxLayout="row">
+      <div class="" fxFlex>
+          <button mat-stroked-button color="accent" (click)="setCookie()">Set test cookie</button>
+          <br>
+          <button mat-stroked-button color="accent" (click)="getCookie()">Get test cookie</button>
+          <br>
+          <button mat-stroked-button color="accent" (click)="removeCookie()">Remove test cookie</button>
+          <br>
+      </div>
+
+      <div class="" fxFlex >
+          <button mat-raised-button color="accent"  (click)="checkStatus()">Check Token</button>
+      </div>
+  </div><!--container-->
+</main>

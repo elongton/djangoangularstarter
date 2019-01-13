@@ -1,0 +1,11 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span class="logo" routerLink="">App Name Here</span>
+    <span class="example-spacer"></span>
+      <button mat-raised-button (click)="logout()" *ngIf="(authState | async).authenticated">Logout</button>
+      <!-- <mat-icon *ngIf="(authState | async).authenticated" class="example-icon">verified_user</mat-icon> -->
+      <!-- <mat-icon *ngIf="(authState | async).authenticated" class="example-icon">perm_identity</mat-icon> -->
+
+
+  </mat-toolbar-row>
+</mat-toolbar>
