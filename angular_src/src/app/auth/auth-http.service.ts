@@ -33,9 +33,12 @@ export class AuthHttpService{
   register(user: NewUser){
     // this.store.dispatch(new UI.StartLoading())
     return this.http.post<Token>(this.djangoRegister, user, httpOptions)
-    // .pipe(
-    //   catchError(this.handleError);
-    // );
+    .pipe(
+      result => {
+        this.store.dispatch(new AuthActions.Signin())
+        return result;
+      }
+    )//pipe
   }
   verify(key:any){
     return this.http.post(this.djangoVerify, key, httpOptions)
@@ -46,6 +49,7 @@ export class AuthHttpService{
     .pipe(
         result => {
           this.store.dispatch(new AuthActions.Signin())
+          console.log(result);
           return result;
         }
     )
