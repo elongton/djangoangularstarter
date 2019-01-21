@@ -5,6 +5,7 @@ import { Store } from '@ngrx/store';
 import * as fromRoot from '../../store/app.reducer'
 // import * as US from '../store/user.actions';
 import * as AuthActions from '../store/auth.actions';
+import * as UI from '../../shared/store/ui/ui.actions';
 import { Router } from '@angular/router';
 import { AuthHttpService } from '../auth-http.service';
 
