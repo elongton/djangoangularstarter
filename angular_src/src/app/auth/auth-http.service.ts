@@ -21,13 +21,14 @@ export class AuthHttpService{
   constructor(private http: HttpClient,
               private store: Store<fromApp.AppState>){}
 
-  private rootdomain          =    'http://localhost:8000/';
+  private rootdomain                  =    'http://localhost:8000/';
 
-  private djangoRegister      =    this.rootdomain + 'rest-auth/registration/';
-  private djangoVerify        =    this.rootdomain + 'rest-auth/registration/verify-email/';
-  private djangoLogin         =    this.rootdomain + 'rest-auth/login/';
-  private djangoLogout        =    this.rootdomain + 'rest-auth/logout/';
-  private djangoVerifyToken   =    this.rootdomain + 'jwt/token-verify/';
+  private djangoRegister              =    this.rootdomain + 'rest-auth/registration/';
+  private djangoVerify                =    this.rootdomain + 'rest-auth/registration/verify-email/';
+  private djangoLogin                 =    this.rootdomain + 'rest-auth/login/';
+  private djangoLogout                =    this.rootdomain + 'rest-auth/logout/';
+  private djangoVerifyToken           =    this.rootdomain + 'jwt/token-verify/';
+  private djangoResetPasswordRequest  =    this.rootdomain + 'rest-auth/password/reset/';
 
 
   register(user: NewUser){
@@ -66,6 +67,10 @@ export class AuthHttpService{
   }
   verify_token(token:any){
     return this.http.post(this.djangoVerifyToken, token, httpOptions)
+  }
+
+  reset_password(email){
+    return this.http.post(this.djangoResetPasswordRequest, email, httpOptions)
   }
 
 

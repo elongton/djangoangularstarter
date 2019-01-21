@@ -3,7 +3,7 @@ import { NgModule} from '@angular/core';
 
 //components
 import { SignupComponent } from './signup/signup.component';
-import { LoginComponent } from './login/login.component';
+import { SigninComponent } from './signin/signin.component';
 import { VerifyComponent } from './verify/verify.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
@@ -18,16 +18,18 @@ import { CoreModule } from '../modules/core.module';
 
 //services
 import { AuthHttpService } from './auth-http.service';
+import { ResetConfirmationComponent } from './reset-password/reset-confirmation/reset-confirmation.component';
 
 
 @NgModule({
   declarations: [
     SignupComponent,
-    LoginComponent,
+    SigninComponent,
     VerifyComponent,
     ResetPasswordComponent,
     ChangePasswordComponent,
     AuthComponent,
+    ResetConfirmationComponent
   ],
   imports: [
     CommonModule,
