@@ -70,6 +70,7 @@ export class AuthHttpService{
   }
 
   reset_password(email){
+    this.store.dispatch(new UIActions.StartLoading())
     return this.http.post(this.djangoResetPasswordRequest, email, httpOptions)
   }
 

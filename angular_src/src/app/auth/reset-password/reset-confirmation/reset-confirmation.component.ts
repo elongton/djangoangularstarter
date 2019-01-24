@@ -43,4 +43,6 @@ export class ResetConfirmationComponent implements OnInit {
         error(err){console.log(err)},
       })
 
+  }//onSubmit
+
 }
