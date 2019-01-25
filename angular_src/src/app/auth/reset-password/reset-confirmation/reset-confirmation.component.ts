@@ -19,7 +19,8 @@ export class ResetConfirmationComponent implements OnInit {
 
   ngOnInit() {
     this.resetForm = new FormGroup({
-      'email': new FormControl('sample@gmail.com', Validators.required),
+      'email': new FormControl('sample853@gmail.com', Validators.required),
+      // 'email': new FormControl('sample@gmail.com', Validators.required),
     })
   }
 
