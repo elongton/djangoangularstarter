@@ -18,7 +18,7 @@ import { CoreModule } from '../modules/core.module';
 
 //services
 import { AuthHttpService } from './auth-http.service';
-import { ResetConfirmationComponent } from './reset-password/reset-confirmation/reset-confirmation.component';
+import { ResetConfirmComponent } from './reset-password/reset-confirm/reset-confirm.component';
 
 
 @NgModule({
@@ -29,7 +29,7 @@ import { ResetConfirmationComponent } from './reset-password/reset-confirmation/
     ResetPasswordComponent,
     ChangePasswordComponent,
     AuthComponent,
-    ResetConfirmationComponent
+    ResetConfirmComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,23 @@
+<mat-card fxLayout="column" fxLayoutAlign="start" style="margin-bottom: 25px;">
+  <form fxLayout="column" fxLayoutAlign="flex-start flex-start" style="font-size: .8em;" [formGroup]="resetConfirmForm" (ngSubmit)='onSubmit()'>
+    <mat-form-field>
+      <input
+        type="password"
+        id="password1"
+        formControlName="new_password1"
+        placeholder="New Password"
+        matInput
+        name="password1">
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        type="password"
+        id="password2"
+        formControlName="new_password2"
+        placeholder="New Password Again"
+        matInput
+        name="password2">
+    </mat-form-field>
+    <button type="submit" mat-raised-button color="primary">Submit</button>
+  </form>
+</mat-card>

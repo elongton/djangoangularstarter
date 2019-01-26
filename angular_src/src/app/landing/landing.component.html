@@ -5,9 +5,9 @@
       <br>
       <button mat-stroked-button color="primary" routerLink="signup">Signup</button>
       <br>
-      <button mat-stroked-button color="primary" routerLink="verify">Manual Verify</button>
+      <button mat-stroked-button color="primary" routerLink="reset">Password Reset</button>
       <br>
-      <button mat-stroked-button color="primary" (click)="resetPassword()"  [disabled]="!(authState | async).authenticated">Password Reset</button>
+      <button mat-stroked-button color="primary" routerLink="verify">Manual Verify</button>
       <br>
       <button mat-stroked-button color="primary" routerLink="change"   [disabled]="!(authState | async).authenticated" >Password Change</button>
     </div>

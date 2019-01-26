@@ -8,7 +8,7 @@ import { ChangePasswordComponent } from '../auth/change-password/change-password
 import { LandingComponent} from '../landing/landing.component';
 import { ProfileComponent } from '../user/profile/profile.component';
 import { SigninComponent } from '../auth/signin/signin.component';
-import { ResetConfirmationComponent } from '../auth/reset-password/reset-confirmation/reset-confirmation.component';
+import { ResetConfirmComponent } from '../auth/reset-password/reset-confirm/reset-confirm.component';
 
 
 const routes: Routes = [
@@ -19,7 +19,7 @@ const routes: Routes = [
   {path: 'signin', component: SigninComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'reset', component: ResetPasswordComponent},
-  {path: 'reset/confirmation', component: ResetConfirmationComponent},
+  {path: 'reset/confirm/:token/:uid', component: ResetConfirmComponent},
   {path: 'password-change', component: ChangePasswordComponent},
 ];
 

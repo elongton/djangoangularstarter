@@ -29,6 +29,7 @@ export class AuthHttpService{
   private djangoLogout                =    this.rootdomain + 'rest-auth/logout/';
   private djangoVerifyToken           =    this.rootdomain + 'jwt/token-verify/';
   private djangoResetPasswordRequest  =    this.rootdomain + 'rest-auth/password/reset/';
+  private djangoResetPasswordConfirm  =    this.rootdomain + 'rest-auth/password/reset/confirm/';
 
 
   register(user: NewUser){
@@ -72,6 +73,10 @@ export class AuthHttpService{
   reset_password(email){
     this.store.dispatch(new UIActions.StartLoading())
     return this.http.post(this.djangoResetPasswordRequest, email, httpOptions)
+  }
+  reset_password_confirm(resetConfirm){
+    this.store.dispatch(new UIActions.StartLoading())
+    return this.http.post(this.djangoResetPasswordConfirm, resetConfirm, httpOptions)
   }
 
 
