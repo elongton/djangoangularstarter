@@ -1,7 +1,7 @@
 # djangoangularstarter
 An Integration between Angular 7 and Django Rest Auth - use to start any Angular Django project
 
-<a href="#requirements-dependencies">Requirements/Dependencies</a>
+<a href="#requirementsdependencies">Requirements/Dependencies</a>
 
 
 ## Introduction

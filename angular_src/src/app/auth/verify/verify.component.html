@@ -31,6 +31,11 @@
 
 
 <div *ngIf='key'>
-  <h2>Thanks for verifying with us.</h2>
+  <div style="margin-bottom: 19px;">
+    <div fxLayout="row" fxLayoutAlign="space-between center" >
+        <h2 style="margin-bottom: 0px;">Thanks for verifying your account!</h2>
+        <a href="https://github.com/elongton/djangoangularstarter/tree/master/angular_src/src/app/auth/verify" target="_blank" class="component-indicator ml">auth/verify</a>
+    </div>
+  </div>
   <button mat-stroked-button routerLink="/profile" color="primary">User Profile</button>
 </div><!-- if no key is present -->
