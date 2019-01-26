@@ -5,10 +5,9 @@
             <h2 style="margin-bottom: 0px;">Suggested User Workflow</h2>
             <a href="https://github.com/elongton/djangoangularstarter/tree/master/angular_src/src/app/workflow-sample-removeme" target="_blank" class="component-indicator ml">workflow-sample-removeme</a>
         </div>
-
-        <small><span class="red">Red arrows</span> indicate path option is strongly suggested.</small> 
-        <br>    
-        <small><span class="blue">Blue arrows</span> indicate path adheres to Django Rest Auth flow.</small>     
+        <div class="small"><span class="blue">Blue arrows</span> indicate path adheres to Django Rest Auth flow.</div> 
+        <div class="small"><span class="red">Red arrows</span> indicate path option is strongly suggested.</div>     
+        <div class="small"><strong>Black arrows</strong> are a suggested paths.</div>     
     </div>
     <!--////////////////////////////////////-->
     <!--///// SIGN IN WORKFLOW SECTION /////-->
@@ -34,7 +33,7 @@
                 </div>
                 <!-- home button -->
                 <div class="ml">
-                    <a routerLink="home" class="nolink"><button mat-stroked-button>Home</button></a>
+                    <a routerLink="home" class="nolink"><button mat-stroked-button matTooltip="Must be logged in">Home</button></a>
                     <!-- <a routerLink="home" [ngClass]="{disabled : !(authState | async).authenticated}"><button mat-stroked-button color="primary" [disabled]="!(authState | async).authenticated">Home</button></a> -->
                 </div>
             </div>
@@ -93,7 +92,7 @@
             <div class="" fxLayout="row">
                 <div class="ml">
                     <!-- profile button -->
-                    <a routerLink="profile" class="nolink"><button mat-stroked-button>Profile</button></a>
+                    <a routerLink="profile" class="nolink"><button mat-stroked-button matTooltip="Must be logged in">Profile</button></a>
                     <!-- <a routerLink="profile" [ngClass]="{disabled : !(authState | async).authenticated}"><button mat-stroked-button color="primary" [disabled]="!(authState | async).authenticated">Profile</button></a> -->
                 </div>
                 <div fxLayout="column"> 
@@ -132,26 +131,26 @@
     <div class="container" fxLayout="row">
         <div class="" fxLayout="column" fxLayoutAlign="start center">
             <!--/// profile button ///-->
-            <a routerLink="profile" class="nolink"><button mat-stroked-button>Profile</button></a>
+            <a routerLink="profile" class="nolink"><button mat-stroked-button matTooltip="Must be logged in">Profile</button></a>
             <!-- <button mat-stroked-button color="primary" routerLink="profile" [disabled]="!(authState | async).authenticated" >Profile</button> -->
             <br>
             <!--/// arrows ///-->
             <div class="" fxLayout="row" fxLayoutAlign="space-around" style="width: 100px;">
-                <fa-icon class="rotate45" icon="long-arrow-alt-down"></fa-icon>
-                <fa-icon class="" icon="long-arrow-alt-down"></fa-icon>
+                <fa-icon class="rotate45 red" icon="long-arrow-alt-down"></fa-icon>
+                <fa-icon class="red" icon="long-arrow-alt-down"></fa-icon>
                 <fa-icon class="rotateNeg45 red" icon="long-arrow-alt-down"></fa-icon>
             </div>
             <br>
             <div class="" fxLayout="row">
                 <!--/// change password button ///-->
-                <a class="nolink" routerLink="change"><button mat-stroked-button >Change Password</button></a>
+                <a class="nolink" routerLink="change"><button mat-stroked-button matTooltip="Must be logged in">Change Password</button></a>
                 <!-- <button mat-stroked-button color="primary" routerLink="change"   [disabled]="!(authState | async).authenticated" >Change Password</button> -->
                 <div  class="ml" fxLayout="column"> 
-                    <a routerLink="reset"><button mat-stroked-button color="primary">Forgot Password</button></a>
+                    <a class="nolink"><button mat-stroked-button matTooltip="Must be logged in">Resend Verify</button></a>
                     <!-- <small fxFlexAlign="end">(Reset Password)</small> -->
                 </div>
                 <div class="ml">
-                    <a routerLink="home" [ngClass]="{disabled : !(authState | async).authenticated}"><button mat-stroked-button color="primary" [disabled]="!(authState | async).authenticated">Home</button></a>
+                    <a class="nolink"><button mat-stroked-button matTooltip="Must be logged in">Update User Details</button></a>
                 </div>
             </div>
         </div>

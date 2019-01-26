@@ -8,7 +8,7 @@
     text-decoration: none;
 }
 
-small{
+small, .small{
     font-family: Roboto;
     opacity: .7;
     font-size: 10px;
