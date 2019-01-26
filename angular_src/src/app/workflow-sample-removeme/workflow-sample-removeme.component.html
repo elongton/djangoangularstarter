@@ -6,106 +6,162 @@
             <a href="https://github.com/elongton/djangoangularstarter/tree/master/angular_src/src/app/workflow-sample-removeme" target="_blank" class="component-indicator ml">workflow-sample-removeme</a>
         </div>
 
-        <small><span class="red">Red arrows</span> indicate path is strongly suggested or already hardcoded in Django Rest Auth</small>     
+        <small><span class="red">Red arrows</span> indicate path option is strongly suggested.</small> 
+        <br>    
+        <small><span class="blue">Blue arrows</span> indicate path adheres to Django Rest Auth flow.</small>     
     </div>
+    <!--////////////////////////////////////-->
+    <!--///// SIGN IN WORKFLOW SECTION /////-->
+    <!--////////////////////////////////////-->
+    <h3><u>Sign In</u></h3>
     <div class="container" fxLayout="row">
-    <!--///////////////////////////////////-->
-    <!--///// SIGNIN WORKFLOW SECTION /////-->
-    <!--///////////////////////////////////-->
-      <div class="" fxLayout="column" fxLayoutAlign="start center">
-        <a routerLink="signin"><button mat-stroked-button color="primary" >Sign In</button></a>
-        <br>
-        <div class="" fxLayout="row" fxLayoutAlign="space-around" style="width: 100px;">
-            <fa-icon class="rotate45 red" icon="long-arrow-alt-down"></fa-icon>
-            <fa-icon class="rotateNeg45" icon="long-arrow-alt-down"></fa-icon>
-        </div>
-        <br>
-        <div class="" fxLayout="row">
-            <div fxLayout="column"> 
-                <a routerLink="reset"><button mat-stroked-button color="primary">Forgot Password</button></a>
-                <!-- <small fxFlexAlign="end">(Reset Password)</small> -->
-            </div>
-            <div class="ml">
-                <a routerLink="home" [ngClass]="{disabled : !(authState | async).authenticated}"><button mat-stroked-button color="primary" [disabled]="!(authState | async).authenticated">Home</button></a>
-            </div>
-            
-        </div>
-      </div>
-    <!--///////////////////////////////////////////-->
-    <!--///// FORGOT PASSWORD WORKFLOW SECTION ////-->
-    <!--///////////////////////////////////////////-->
-      <div class="leftborder ml" fxLayout="column" fxLayoutAlign="start center">
-        <div fxLayout="column"> 
-            <a routerLink="reset"><button mat-stroked-button color="primary">Forgot Password</button></a>
-        </div>
-        <br>
-            <fa-icon class="red" icon="long-arrow-alt-down"></fa-icon>
-        <br>
-        <div class="email-step">
-            *Django reset password email
-        </div>
-        <small fxFlexAlign="center">(Find in Django logs)</small>
-      </div>
-    <!--///////////////////////////////////////////-->
-    <!--///////////// HORIZONTAL STEPS ////////////-->
-    <!--///////////////////////////////////////////-->
-      <div class="leftborder ml" fxLayout="row" fxLayoutAlign="center start">
-        <div fxLayout="row" fxLayoutAlign="start center">
-            <div fxLayout="row"> 
-                <div class="email-step-description" fxLayout="row">
-                    <div>*</div>
-                    <div>Django reset password email<br> provides link</div>
-                </div>
-            </div>
-            <fa-icon class="red" icon="long-arrow-alt-right"></fa-icon>
-            <a routerLink="reset/confirm" class="ml" ><button mat-stroked-button color="primary">Choose New Password</button></a>            
-        </div>
-    </div>
- 
-  </div><!--container-->
-
-  <hr>
-
-  <div class="container" fxLayout="row">
-    <!--///////////////////////////////////-->
-    <!--///// SIGNUP WORKFLOW SECTION /////-->
-    <!--///////////////////////////////////-->
-    <div fxLayout="column" fxLayoutAlign="start center">
-            <a routerLink="signup"><button mat-stroked-button color="primary">Sign Up</button></a>
+        <!--====== SIGN IN COLUMN ====== -->
+        <div class="" fxLayout="column" fxLayoutAlign="start center">
+            <!-- sign in button -->
+            <a routerLink="signin"><button mat-stroked-button color="primary" >Sign In</button></a>
             <br>
+            <!-- arrows -->
             <div class="" fxLayout="row" fxLayoutAlign="space-around" style="width: 100px;">
-                <fa-icon class="rotate45" icon="long-arrow-alt-down"></fa-icon>
+                <fa-icon class="rotate45 red" icon="long-arrow-alt-down"></fa-icon>
                 <fa-icon class="rotateNeg45" icon="long-arrow-alt-down"></fa-icon>
             </div>
             <br>
-            <a routerLink="home" [ngClass]="{disabled : !(authState | async).authenticated}"><button mat-stroked-button color="primary" [disabled]="!(authState | async).authenticated">Home</button></a>
-          </div>
-        <!--/////////////////////////////////-->
-        <!--///// HOME WORKFLOW SECTION /////-->
-        <!--/////////////////////////////////-->
-          <div class="leftborder ml" fxLayout="column" fxLayoutAlign="start center">
-            <a routerLink="home" [ngClass]="{disabled : !(authState | async).authenticated}"><button mat-stroked-button color="primary" [disabled]="!(authState | async).authenticated">Home</button></a>
+            <!-- forgot password button -->
+            <div class="" fxLayout="row">
+                <div fxLayout="column"> 
+                    <a routerLink="reset"><button mat-stroked-button color="primary">Forgot Password</button></a>
+                    <!-- <small fxFlexAlign="end">(Reset Password)</small> -->
+                </div>
+                <!-- home button -->
+                <div class="ml">
+                    <a routerLink="home" class="nolink"><button mat-stroked-button>Home</button></a>
+                    <!-- <a routerLink="home" [ngClass]="{disabled : !(authState | async).authenticated}"><button mat-stroked-button color="primary" [disabled]="!(authState | async).authenticated">Home</button></a> -->
+                </div>
+            </div>
+        </div>
+        <!-- ====== FORGOT PASSWORD COLUMN ====== -->
+        <div class="leftborder ml" fxLayout="column" fxLayoutAlign="start center">
+            <!-- forgot password button -->
+            <div fxLayout="column"> 
+                <a routerLink="reset"><button mat-stroked-button color="primary">Forgot Password</button></a>
+            </div>
             <br>
-            <fa-icon icon="long-arrow-alt-down"></fa-icon>
+            <!-- arrows -->
+            <fa-icon class="blue" icon="long-arrow-alt-down"></fa-icon>
             <br>
-            <button mat-stroked-button color="primary" routerLink="profile" [disabled]="!(authState | async).authenticated" >User Profile</button>
-          </div>
-        <!--/////////////////////////////////////////-->
-        <!--///// USER PROFILE WORKFLOW SECTION /////-->
-        <!--/////////////////////////////////////////-->
-          <div class="leftborder ml" fxLayout="column" fxLayoutAlign="start center">
-            <button mat-stroked-button color="primary" routerLink="profile" [disabled]="!(authState | async).authenticated" >User Profile</button>
+            <!-- reset email description -->
+            <div class="email-step-description">
+                *Django reset password email
+            </div>
+            <small fxFlexAlign="center">(Find in Django logs)</small>
+        </div>
+        <!-- ====== DJANGO RESET PASSWORD (horizontal flow) ====== -->
+        <div class="leftborder ml" fxLayout="row" fxLayoutAlign="center start">
+            <div fxLayout="row" fxLayoutAlign="start center">
+                <div fxLayout="row"> 
+                    <!-- reset email description -->
+                    <div class="email-step-description" fxLayout="row">
+                        <div>*</div>
+                        <div>Django reset password email<br> provides link</div>
+                    </div>
+                </div>
+                <!-- right arrow -->
+                <fa-icon class="blue" icon="long-arrow-alt-right"></fa-icon>
+                <!-- choose new password button -->
+                <a routerLink="reset/confirm" class="ml" ><button mat-stroked-button color="primary">Choose New Password</button></a>            
+            </div>
+        </div>
+ 
+    </div><!--container-->
+
+    <hr>
+    <!--///////////////////////////////////-->
+    <!--///// SIGNUP WORKFLOW SECTION /////-->
+    <!--///////////////////////////////////-->
+    <h3><u>Sign Up</u></h3>
+    <div class="container" fxLayout="row">
+        <div fxLayout="column" fxLayoutAlign="start center">
+            <!-- sign up button -->
+            <a routerLink="signup"><button mat-stroked-button color="primary">Sign Up</button></a>
             <br>
-            <fa-icon icon="long-arrow-alt-down"></fa-icon>
+            <!-- arrows -->
+            <div class="" fxLayout="row" fxLayoutAlign="space-around" style="width: 100px;">
+                <fa-icon class="rotate45" icon="long-arrow-alt-down"></fa-icon>
+                <fa-icon class="rotateNeg45 blue" icon="long-arrow-alt-down"></fa-icon>
+            </div>
             <br>
+            <div class="" fxLayout="row">
+                <div class="ml">
+                    <!-- profile button -->
+                    <a routerLink="profile" class="nolink"><button mat-stroked-button>Profile</button></a>
+                    <!-- <a routerLink="profile" [ngClass]="{disabled : !(authState | async).authenticated}"><button mat-stroked-button color="primary" [disabled]="!(authState | async).authenticated">Profile</button></a> -->
+                </div>
+                <div fxLayout="column"> 
+                    <!-- verify account description -->
+                    <div class="email-step-description">
+                        *Django verify account<br>email
+                    </div>
+                    <small fxFlexAlign="center">(Find in Django logs)</small>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="leftborder ml" fxLayout="row" fxLayoutAlign="center start">
+            <div fxLayout="row" fxLayoutAlign="start center">
+                <div fxLayout="row"> 
+                    <!-- verify account description -->
+                    <div class="email-step-description" fxLayout="row">
+                        <div>*</div>
+                        <div>Django verify account<br>email provides link</div>
+                    </div>
+                </div>
+                <!--/// right arrow ///-->
+                <fa-icon class="red" icon="long-arrow-alt-right"></fa-icon>
+                <a href="" routerLink="verify" class="ml"><button mat-stroked-button color="primary">Verify</button></a>
+            </div>
+        </div>
+
+    </div><!--container-->
+
+    <hr>
+    <!--///////////////////////////////////-->
+    <!--///// PROFILE WORKFLOW SECTION /////-->
+    <!--///////////////////////////////////-->
+    <h3><u>Profile Options</u></h3>
+    <div class="container" fxLayout="row">
+        <div class="" fxLayout="column" fxLayoutAlign="start center">
+            <!--/// profile button ///-->
+            <a routerLink="profile" class="nolink"><button mat-stroked-button>Profile</button></a>
+            <!-- <button mat-stroked-button color="primary" routerLink="profile" [disabled]="!(authState | async).authenticated" >Profile</button> -->
+            <br>
+            <!--/// arrows ///-->
+            <div class="" fxLayout="row" fxLayoutAlign="space-around" style="width: 100px;">
+                <fa-icon class="rotate45" icon="long-arrow-alt-down"></fa-icon>
+                <fa-icon class="" icon="long-arrow-alt-down"></fa-icon>
+                <fa-icon class="rotateNeg45 red" icon="long-arrow-alt-down"></fa-icon>
+            </div>
+            <br>
+            <div class="" fxLayout="row">
+                <!--/// change password button ///-->
+                <a class="nolink" routerLink="change"><button mat-stroked-button >Change Password</button></a>
+                <!-- <button mat-stroked-button color="primary" routerLink="change"   [disabled]="!(authState | async).authenticated" >Change Password</button> -->
+                <div  class="ml" fxLayout="column"> 
+                    <a routerLink="reset"><button mat-stroked-button color="primary">Forgot Password</button></a>
+                    <!-- <small fxFlexAlign="end">(Reset Password)</small> -->
+                </div>
+                <div class="ml">
+                    <a routerLink="home" [ngClass]="{disabled : !(authState | async).authenticated}"><button mat-stroked-button color="primary" [disabled]="!(authState | async).authenticated">Home</button></a>
+                </div>
+            </div>
+        </div>
     
-          </div>
-  </div>
+
+    </div><!--container-->
+    <br>
 
 
 
 
-  <br>
-  <button mat-stroked-button color="primary" routerLink="verify">Manual Verify</button>
-  <br>
-  <button mat-stroked-button color="primary" routerLink="change"   [disabled]="!(authState | async).authenticated" >Password Change</button>
+
+

@@ -6,11 +6,6 @@ button, a{margin-bottom: 10px;}
 a, button{
     margin-bottom: 0;
 }
- small{
-     font-family: Roboto;
-     opacity: .5;
-     font-size: 10px;
- }
 
  .ml{
      margin-left: 10px;
@@ -28,9 +23,8 @@ a, button{
     transform: rotate(-45deg);
  }
 
- .red{
-     color: red;
- }
+ .red{color: red;}
+ .blue{color: blue;}
 
  hr{
      margin-top: 20px;
@@ -52,4 +46,5 @@ a, button{
     overflow: hidden;
     font-family: Roboto;
     font-size: 14px;
+    text-align: center;
  }

@@ -16,6 +16,7 @@ export class ResetConfirmComponent implements OnInit {
   token: string
   uid: string
   djangoEmail: boolean = false;
+  passwords: any;
   constructor(private httpService: AuthHttpService,
               private router: Router,
               private route: ActivatedRoute,
@@ -46,7 +47,7 @@ export class ResetConfirmComponent implements OnInit {
     let resetConfirm = this.resetConfirmForm;
     if (this.route.snapshot.params['uid'] && this.route.snapshot.params['token']){
       //this condition occurs when user follows email sent from Django
-      let passwords = {
+      this.passwords = {
         uid: this.uid,
         token: this.token,
         new_password1: resetConfirm.value.new_password1,
@@ -54,7 +55,7 @@ export class ResetConfirmComponent implements OnInit {
       }//passwords
     }else{
       //this condition occurs when user clicks choose new password
-      let passwords = {
+      this.passwords = {
         uid: resetConfirm.value.uid,
         token: resetConfirm.value.token,
         new_password1: resetConfirm.value.new_password1,
@@ -62,13 +63,10 @@ export class ResetConfirmComponent implements OnInit {
       }//passwords
     }//if else
 
-
-    console.log(passwords)
-
     //not happy with this solution - there must be a way to access the scope two levels up
     let myrouter = this.router;
     var mystore = this.store;
-    this.httpService.reset_password_confirm(passwords)
+    this.httpService.reset_password_confirm(this.passwords)
       .subscribe({
         next(response){
           console.log('Success!')
