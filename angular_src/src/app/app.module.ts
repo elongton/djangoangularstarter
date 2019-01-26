@@ -9,7 +9,6 @@ import { AppRoutingModule } from './modules/app-routing.module';
 
 import { reducers } from './store/app.reducer';
 import { StoreModule } from '@ngrx/store';
-
 import { EffectsModule } from '@ngrx/effects';
 import { UserEffects } from './user/store/user.effects';
 
@@ -17,6 +16,11 @@ import { MaterialModule } from './modules/material.module';
 import { CoreModule } from './modules/core.module';
 import { LandingComponent } from './landing/landing.component';
 import { UserModule } from './user/user.module';
+
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faCoffee, faLongArrowAltDown } from '@fortawesome/free-solid-svg-icons';
+
 
 import {CookieService} from 'angular2-cookie/services/cookies.service';
 import { HeaderComponent } from './header/header.component';
@@ -38,10 +42,16 @@ import { AuthModule } from './auth/auth.module';
     AuthModule,
     MaterialModule,
     CoreModule,
+    FontAwesomeModule,
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([UserEffects]),
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  constructor() {
+    // Add an icon to the library for convenient access in other components
+    library.add(faLongArrowAltDown);
+  }
+}

@@ -1,44 +1,39 @@
 <main style="width: 100%;">
+  <h2>User Workflow</h2>
   <div class="container" fxLayout="row">
-    <div class="" fxFlex>
-      <button mat-stroked-button color="primary" routerLink="signin">Sign In</button>
-      <br>
-      <button mat-stroked-button color="primary" routerLink="signup">Signup</button>
-      <br>
-      <button mat-stroked-button color="primary" routerLink="reset">Password Reset</button>
-      <br>
-      <button mat-stroked-button color="primary" routerLink="verify">Manual Verify</button>
-      <br>
-      <button mat-stroked-button color="primary" routerLink="change"   [disabled]="!(authState | async).authenticated" >Password Change</button>
-    </div>
+      <div class="" fxLayout="column" fxLayoutAlign="start center">
+          <a routerLink="signin"><button mat-stroked-button color="primary" >Sign In</button></a>
+          <br>
+          <fa-icon icon="long-arrow-alt-down"></fa-icon>
+          <br>
+          <div fxLayout="column"> 
+            <a routerLink="reset"><button mat-stroked-button color="primary">Forgot Password</button></a>
+            <small fxFlexAlign="end">(Reset Password)</small>
+          </div>
 
 
-
-    <div fxFlex>
-      <button mat-stroked-button color="primary" routerLink="profile" [disabled]="!(authState | async).authenticated" >User Profile</button>
-      <br>
-    </div>
+      </div>
+      <div class="leftborder ml" fxLayout="column" fxLayoutAlign="start center">
+          <a routerLink="signup"><button mat-stroked-button color="primary">Signup</button></a>
+          <br>
+          <fa-icon icon="long-arrow-alt-down"></fa-icon>
+          <br>
+          <button mat-stroked-button color="primary" routerLink="profile" [disabled]="!(authState | async).authenticated" >User Profile</button>
+      </div>
 
 
 
   </div><!--container-->
 
 
-  <hr><!--SEPARATOR-->
+  <hr>
 
-  <h3>Cookie Testing</h3>
-  <div class="container" fxLayout="row">
-      <div class="" fxFlex>
-          <button mat-stroked-button color="accent" (click)="setCookie()">Set test cookie</button>
-          <br>
-          <button mat-stroked-button color="accent" (click)="getCookie()">Get test cookie</button>
-          <br>
-          <button mat-stroked-button color="accent" (click)="removeCookie()">Remove test cookie</button>
-          <br>
-      </div>
 
-      <div class="" fxFlex >
-          <button mat-raised-button color="accent"  (click)="checkStatus()">Check Token</button>
-      </div>
-  </div><!--container-->
-</main>
+
+  <button mat-stroked-button color="primary" routerLink="signup">Signup</button>
+  <br>
+  <button mat-stroked-button color="primary" routerLink="reset">Password Reset</button>
+  <br>
+  <button mat-stroked-button color="primary" routerLink="verify">Manual Verify</button>
+  <br>
+  <button mat-stroked-button color="primary" routerLink="change"   [disabled]="!(authState | async).authenticated" >Password Change</button>
