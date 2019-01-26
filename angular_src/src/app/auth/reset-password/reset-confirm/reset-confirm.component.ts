@@ -15,28 +15,53 @@ export class ResetConfirmComponent implements OnInit {
   resetConfirmForm: FormGroup
   token: string
   uid: string
+  djangoEmail: boolean = false;
   constructor(private httpService: AuthHttpService,
               private router: Router,
               private route: ActivatedRoute,
               private store: Store<fromRoot.AppState>) { }
 
   ngOnInit() {
-    this.resetConfirmForm = new FormGroup({
-      'new_password1': new FormControl('', Validators.required),
-      'new_password2': new FormControl('', Validators.required),
-    })
-    this.uid = this.route.snapshot.params['uid'];
-    this.token = this.route.snapshot.params['token'];
+    if (this.route.snapshot.params['uid'] && this.route.snapshot.params['token']){
+      this.djangoEmail=true;
+      //this condition occurs when user follows email sent from Django
+      this.uid = this.route.snapshot.params['uid'];
+      this.token = this.route.snapshot.params['token'];
+      this.resetConfirmForm = new FormGroup({
+        'new_password1': new FormControl('', Validators.required),
+        'new_password2': new FormControl('', Validators.required),
+      })
+    }else{
+      //this condition occurs when user clicks choose new password
+      this.resetConfirmForm = new FormGroup({
+        'new_password1': new FormControl('', Validators.required),
+        'new_password2': new FormControl('', Validators.required),
+        'uid': new FormControl('', Validators.required),
+        'token': new FormControl('', Validators.required),
+      })
+    }    
   }
 
   onSubmit(){
     let resetConfirm = this.resetConfirmForm;
-    let passwords = {
-      uid: this.uid,
-      token: this.token,
-      new_password1: resetConfirm.value.new_password1,
-      new_password2: resetConfirm.value.new_password2,
-    }
+    if (this.route.snapshot.params['uid'] && this.route.snapshot.params['token']){
+      //this condition occurs when user follows email sent from Django
+      let passwords = {
+        uid: this.uid,
+        token: this.token,
+        new_password1: resetConfirm.value.new_password1,
+        new_password2: resetConfirm.value.new_password2,
+      }//passwords
+    }else{
+      //this condition occurs when user clicks choose new password
+      let passwords = {
+        uid: resetConfirm.value.uid,
+        token: resetConfirm.value.token,
+        new_password1: resetConfirm.value.new_password1,
+        new_password2: resetConfirm.value.new_password2,
+      }//passwords
+    }//if else
+
 
     console.log(passwords)
 

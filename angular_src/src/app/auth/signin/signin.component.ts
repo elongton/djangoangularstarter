@@ -55,7 +55,7 @@ export class SigninComponent implements OnInit {
           console.log('Success!')
           console.log(response);
           mycookie.put('token', response.token);
-          myrouter.navigate(['profile']);
+          myrouter.navigate(['home']);
           mystore.dispatch(new UIActions.StopLoading())
         },
         error(err){console.log(err)},

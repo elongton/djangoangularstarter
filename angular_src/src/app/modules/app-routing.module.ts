@@ -9,16 +9,19 @@ import { WorkflowSampleRemovemeComponent} from '../workflow-sample-removeme/work
 import { ProfileComponent } from '../user/profile/profile.component';
 import { SigninComponent } from '../auth/signin/signin.component';
 import { ResetConfirmComponent } from '../auth/reset-password/reset-confirm/reset-confirm.component';
+import { HomeComponent } from '../home/home.component';
 
 
 const routes: Routes = [
   {path: '', component: WorkflowSampleRemovemeComponent},
+  {path: 'home', component: HomeComponent},
   {path: 'signup', component: SignupComponent},
   {path: 'verify', component: VerifyComponent},
   {path: 'verify/:key', component: VerifyComponent},
   {path: 'signin', component: SigninComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'reset', component: ResetPasswordComponent},
+  {path: 'reset/confirm', component: ResetConfirmComponent},
   {path: 'reset/confirm/:token/:uid', component: ResetConfirmComponent},
   {path: 'password-change', component: ChangePasswordComponent},
 ];

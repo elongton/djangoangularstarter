@@ -19,18 +19,20 @@ import { UserModule } from './user/user.module';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faCoffee, faLongArrowAltDown } from '@fortawesome/free-solid-svg-icons';
+import { faCoffee, faLongArrowAltDown, faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons';
 
 
 import {CookieService} from 'angular2-cookie/services/cookies.service';
 import { HeaderComponent } from './header/header.component';
 import { AuthModule } from './auth/auth.module';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WorkflowSampleRemovemeComponent,
     HeaderComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,5 +55,6 @@ export class AppModule {
   constructor() {
     // Add an icon to the library for convenient access in other components
     library.add(faLongArrowAltDown);
+    library.add(faLongArrowAltRight);
   }
 }
