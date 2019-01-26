@@ -12,11 +12,11 @@ interface tokenthing {
 }
 
 @Component({
-  selector: 'app-landing',
-  templateUrl: './landing.component.html',
-  styleUrls: ['./landing.component.css']
+  selector: 'app-workflow-sample-removeme',
+  templateUrl: './workflow-sample-removeme.component.html',
+  styleUrls: ['./workflow-sample-removeme.component.css']
 })
-export class LandingComponent implements OnInit {
+export class WorkflowSampleRemovemeComponent implements OnInit {
   token: String;
   authState: Observable<fromAuth.AuthState>
 

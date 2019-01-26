@@ -5,14 +5,14 @@ import { SignupComponent } from '../auth/signup/signup.component';
 import { VerifyComponent } from '../auth/verify/verify.component';
 import { ResetPasswordComponent } from '../auth/reset-password/reset-password.component';
 import { ChangePasswordComponent } from '../auth/change-password/change-password.component';
-import { LandingComponent} from '../landing/landing.component';
+import { WorkflowSampleRemovemeComponent} from '../workflow-sample-removeme/workflow-sample-removeme.component';
 import { ProfileComponent } from '../user/profile/profile.component';
 import { SigninComponent } from '../auth/signin/signin.component';
 import { ResetConfirmComponent } from '../auth/reset-password/reset-confirm/reset-confirm.component';
 
 
 const routes: Routes = [
-  {path: '', component: LandingComponent},
+  {path: '', component: WorkflowSampleRemovemeComponent},
   {path: 'signup', component: SignupComponent},
   {path: 'verify', component: VerifyComponent},
   {path: 'verify/:key', component: VerifyComponent},

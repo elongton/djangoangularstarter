@@ -20,3 +20,10 @@ a, button{
      padding-left: 10px;
      border-left: 1px solid grey;
  }
+
+ .rotate45{
+    transform: rotate(45deg);
+ }
+ .rotateNeg45{
+    transform: rotate(-45deg);
+ }

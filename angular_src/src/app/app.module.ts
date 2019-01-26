@@ -14,7 +14,7 @@ import { UserEffects } from './user/store/user.effects';
 
 import { MaterialModule } from './modules/material.module';
 import { CoreModule } from './modules/core.module';
-import { LandingComponent } from './landing/landing.component';
+import { WorkflowSampleRemovemeComponent } from './workflow-sample-removeme/workflow-sample-removeme.component';
 import { UserModule } from './user/user.module';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -29,7 +29,7 @@ import { AuthModule } from './auth/auth.module';
 @NgModule({
   declarations: [
     AppComponent,
-    LandingComponent,
+    WorkflowSampleRemovemeComponent,
     HeaderComponent,
   ],
   imports: [
