@@ -26,6 +26,7 @@ import {CookieService} from 'angular2-cookie/services/cookies.service';
 import { HeaderComponent } from './header/header.component';
 import { AuthModule } from './auth/auth.module';
 import { HomeComponent } from './home/home.component';
+import { httpInterceptorProviders } from './shared/http-interceptors';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,7 @@ import { HomeComponent } from './home/home.component';
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([UserEffects]),
   ],
-  providers: [CookieService],
+  providers: [CookieService, httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { 

@@ -2,13 +2,14 @@ import { CommonModule } from '@angular/common';
 import { NgModule} from '@angular/core';
 
 //components
-import { SignupComponent } from './signup/signup.component';
-import { SigninComponent } from './signin/signin.component';
+
 import { ChangePasswordComponent } from './password/change/change-password.component';
 import { AuthComponent } from './auth.component';
 import { ResetConfirmComponent } from './password/reset/confirm/reset-confirm.component';
 import { VerifyComponent } from './verify-account/verify.component';
 import { ResetPasswordComponent } from './password/reset/reset-password.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 
 //modules
 import { AppRoutingModule } from '../modules/app-routing.module';
@@ -24,8 +25,8 @@ import { AuthHttpService } from './auth-http.service';
 
 @NgModule({
   declarations: [
-    SignupComponent,
-    SigninComponent,
+    RegisterComponent,
+    LoginComponent,
     VerifyComponent,
     ResetPasswordComponent,
     ChangePasswordComponent,

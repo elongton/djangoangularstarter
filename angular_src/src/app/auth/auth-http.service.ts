@@ -2,19 +2,13 @@ import { Injectable } from '@angular/core';
 import { NewUser } from './models/newUser.model';
 import { LoginCredentials } from './models/loginCredentials.model';
 import { Token } from './models/token.model';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Store } from '@ngrx/store';
 import * as AuthActions from './store/auth.actions';
 import * as UIActions from'../shared/store/ui/ui.actions';
 import * as fromApp from '../store/app.reducer'
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry, flatMap, map } from 'rxjs/operators';
-
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type':  'application/json',
-  })
-};
 
 @Injectable()
 export class AuthHttpService{
@@ -30,11 +24,12 @@ export class AuthHttpService{
   private djangoVerifyToken           =    this.rootdomain + 'jwt/token-verify/';
   private djangoResetPasswordRequest  =    this.rootdomain + 'rest-auth/password/reset/';
   private djangoResetPasswordConfirm  =    this.rootdomain + 'rest-auth/password/reset/confirm/';
+  private djangoChangePassword        =    this.rootdomain + 'rest-auth/password/change/';
 
 
   register(user: NewUser){
     // this.store.dispatch(new UI.StartLoading())
-    return this.http.post<Token>(this.djangoRegister, user, httpOptions)
+    return this.http.post<Token>(this.djangoRegister, user)
     .pipe(
       result => {
         this.store.dispatch(new AuthActions.Signin())
@@ -43,40 +38,45 @@ export class AuthHttpService{
     )//pipe
   }
   verify(key:any){
-    return this.http.post(this.djangoVerify, key, httpOptions)
+    return this.http.post(this.djangoVerify, key)
   }
   login(credentials: LoginCredentials){
     this.store.dispatch(new UIActions.StartLoading())
-    return this.http.post<Token>(this.djangoLogin, credentials, httpOptions)
-    .pipe(
-        result => {
+    return this.http.post<Token>(this.djangoLogin, credentials)
+    .pipe(result => {
           this.store.dispatch(new AuthActions.Signin())
-          console.log(result);
+          console.log('this is the result', result);
           return result;
         }
     )
 
   }//login
   logout(){
-    return this.http.post(this.djangoLogout, httpOptions)
+    return this.http.post(this.djangoLogout, {})
     .pipe(
       result => {
         this.store.dispatch(new AuthActions.Logout())
+        console.log(result);
         return result;
       }
-    )
-  }
+    )//pipe
+  }//logout()
+  
   verify_token(token:any){
-    return this.http.post(this.djangoVerifyToken, token, httpOptions)
+    return this.http.post(this.djangoVerifyToken, token)
   }
 
   reset_password(email){
     this.store.dispatch(new UIActions.StartLoading())
-    return this.http.post(this.djangoResetPasswordRequest, email, httpOptions)
+    return this.http.post(this.djangoResetPasswordRequest, email)
   }
   reset_password_confirm(resetConfirm){
     this.store.dispatch(new UIActions.StartLoading())
-    return this.http.post(this.djangoResetPasswordConfirm, resetConfirm, httpOptions)
+    return this.http.post(this.djangoResetPasswordConfirm, resetConfirm)
+  }
+  changePassword(passwordArray){
+    this.store.dispatch(new UIActions.StartLoading())
+    return this.http.post(this.djangoChangePassword, passwordArray)
   }
 
 

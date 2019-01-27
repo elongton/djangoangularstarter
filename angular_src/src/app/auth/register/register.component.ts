@@ -10,11 +10,11 @@ import { Router } from '@angular/router';
 import { AuthHttpService } from '../auth-http.service';
 
 @Component({
-  selector: 'app-signup',
-  templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 })
-export class SignupComponent implements OnInit {
+export class RegisterComponent implements OnInit {
 
   signupForm: FormGroup
   user_submit: NewUser

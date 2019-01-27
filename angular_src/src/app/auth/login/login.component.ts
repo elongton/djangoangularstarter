@@ -8,6 +8,7 @@ import { Token } from '../models/token.model';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import * as UIActions from '../../shared/store/ui/ui.actions';
+import * as AuthActions from '../store/auth.actions';
 // import * as US from '../store/user.actions';
 import * as fromRoot from '../../store/app.reducer'
 
@@ -15,11 +16,11 @@ import * as fromRoot from '../../store/app.reducer'
 
 
 @Component({
-  selector: 'app-signin',
-  templateUrl: './signin.component.html',
-  styleUrls: ['./signin.component.css']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class SigninComponent implements OnInit {
+export class LoginComponent implements OnInit {
 
   loginForm: FormGroup
   creds: LoginCredentials
@@ -54,7 +55,8 @@ export class SigninComponent implements OnInit {
         next(response){
           console.log('Success!')
           console.log(response);
-          mycookie.put('token', response.token);
+          mystore.dispatch(new AuthActions.SetToken(response.token))
+          // mycookie.put('token', response.token);
           myrouter.navigate(['home']);
           mystore.dispatch(new UIActions.StopLoading())
         },
