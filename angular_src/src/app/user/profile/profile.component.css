@@ -1,4 +1,6 @@
-.profile_imag{
+.profile_image{
     max-width: 300px;
     width: 50%;
 }
+
+button, a{margin-bottom: 10px;}

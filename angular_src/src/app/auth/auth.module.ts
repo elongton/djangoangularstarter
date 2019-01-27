@@ -4,10 +4,11 @@ import { NgModule} from '@angular/core';
 //components
 import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
-import { VerifyComponent } from './verify/verify.component';
-import { ResetPasswordComponent } from './reset-password/reset-password.component';
-import { ChangePasswordComponent } from './change-password/change-password.component';
+import { ChangePasswordComponent } from './password/change/change-password.component';
 import { AuthComponent } from './auth.component';
+import { ResetConfirmComponent } from './password/reset/confirm/reset-confirm.component';
+import { VerifyComponent } from './verify-account/verify.component';
+import { ResetPasswordComponent } from './password/reset/reset-password.component';
 
 //modules
 import { AppRoutingModule } from '../modules/app-routing.module';
@@ -18,7 +19,7 @@ import { CoreModule } from '../modules/core.module';
 
 //services
 import { AuthHttpService } from './auth-http.service';
-import { ResetConfirmComponent } from './reset-password/reset-confirm/reset-confirm.component';
+
 
 
 @NgModule({

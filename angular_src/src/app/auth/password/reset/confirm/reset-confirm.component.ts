@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { AuthHttpService } from '../../auth-http.service';
+import { AuthHttpService } from '../../../auth-http.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
-import * as fromRoot from '../../../store/app.reducer';
-import * as UIActions from '../../../shared/store/ui/ui.actions';
+import * as fromRoot from '../../../../store/app.reducer';
+import * as UIActions from '../../../../shared/store/ui/ui.actions';
 
 @Component({
   selector: 'app-reset-confirm',

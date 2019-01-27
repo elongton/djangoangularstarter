@@ -2,14 +2,14 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { UserComponent } from '../user/user.component';
 import { SignupComponent } from '../auth/signup/signup.component';
-import { VerifyComponent } from '../auth/verify/verify.component';
-import { ResetPasswordComponent } from '../auth/reset-password/reset-password.component';
-import { ChangePasswordComponent } from '../auth/change-password/change-password.component';
+import { ChangePasswordComponent } from '../auth/password/change/change-password.component';
 import { WorkflowSampleRemovemeComponent} from '../workflow-sample-removeme/workflow-sample-removeme.component';
 import { ProfileComponent } from '../user/profile/profile.component';
 import { SigninComponent } from '../auth/signin/signin.component';
-import { ResetConfirmComponent } from '../auth/reset-password/reset-confirm/reset-confirm.component';
 import { HomeComponent } from '../home/home.component';
+import { VerifyComponent } from '../auth/verify-account/verify.component';
+import { ResetPasswordComponent } from '../auth/password/reset/reset-password.component';
+import { ResetConfirmComponent } from '../auth/password/reset/confirm/reset-confirm.component';
 
 
 const routes: Routes = [
@@ -23,7 +23,7 @@ const routes: Routes = [
   {path: 'reset', component: ResetPasswordComponent},
   {path: 'reset/confirm', component: ResetConfirmComponent},
   {path: 'reset/confirm/:token/:uid', component: ResetConfirmComponent},
-  {path: 'password-change', component: ChangePasswordComponent},
+  {path: 'change-password', component: ChangePasswordComponent},
 ];
 
 @NgModule({

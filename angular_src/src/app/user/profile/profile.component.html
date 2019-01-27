@@ -1,17 +1,23 @@
-<div fxLayout="row">
-  <div fxFlex>
-      <h2>Last, First</h2>
-      <h3>username</h3>
-
-      <button mat-stroked-button primary disabled>Password Reset</button>
-
-
-  </div> 
-  <div fxFlex>
-      <img class="profile_imag" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" alt="">
-  </div> 
-  
-
-  
+<div style="margin-bottom: 19px;">
+    <div fxLayout="row" fxLayoutAlign="space-between center" >
+        <h2 style="margin-bottom: 0px;">Profile Page</h2>
+        <a href="https://github.com/elongton/djangoangularstarter/tree/master/angular_src/src/app/user/profile" target="_blank" class="component-indicator ml">user/profile</a>
+    </div>
+    <div class="small">Profile page info here.</div> 
 </div>
+
+<mat-card fxLayout="row">
+    <div fxFlex>
+        <h3 style="margin-top: 0; margin-bottom: 10px;">Last Name, First Name</h3>
+        <h4 style="margin-top: 0;">username</h4>
+
+        <button mat-stroked-button primary disabled>Password Reset</button><br>
+        <button mat-stroked-button primary disabled>Resend Verify Account Email</button><br>
+        <button mat-stroked-button primary disabled>Update Info</button>
+    </div> 
+
+    <div fxFlex class="" style="text-align: right;">
+        <img class="profile_image" src="/assets/img/profile.jpg" alt="">
+    </div>
+</mat-card>
 
