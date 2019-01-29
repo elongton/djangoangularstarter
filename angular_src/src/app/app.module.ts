@@ -11,6 +11,7 @@ import { reducers } from './store/app.reducer';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { UserEffects } from './user/store/user.effects';
+import { UIEffects } from './shared/store/ui/ui.effects';
 
 import { MaterialModule } from './modules/material.module';
 import { CoreModule } from './modules/core.module';
@@ -19,14 +20,15 @@ import { UserModule } from './user/user.module';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faCoffee, faLongArrowAltDown, faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons';
+import { faLongArrowAltDown, faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons';
 
 
 import {CookieService} from 'angular2-cookie/services/cookies.service';
 import { HeaderComponent } from './header/header.component';
 import { AuthModule } from './auth/auth.module';
 import { HomeComponent } from './home/home.component';
-import { httpInterceptorProviders } from './shared/http-interceptors';
+import { httpInterceptorProviders } from './shared/http-interceptors/interceptor_index';
+
 
 @NgModule({
   declarations: [
@@ -47,7 +49,7 @@ import { httpInterceptorProviders } from './shared/http-interceptors';
     CoreModule,
     FontAwesomeModule,
     StoreModule.forRoot(reducers),
-    EffectsModule.forRoot([UserEffects]),
+    EffectsModule.forRoot([UserEffects, UIEffects]),
   ],
   providers: [CookieService, httpInterceptorProviders],
   bootstrap: [AppComponent]

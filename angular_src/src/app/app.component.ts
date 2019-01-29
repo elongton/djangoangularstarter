@@ -13,7 +13,7 @@ import { ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent {
-  constructor(private store: Store<fromRoot.AppState>){}
+  constructor(private store: Store<fromRoot.AppState>,){}
   title = 'sample';
   isLoading: Observable<fromUi.State>
 
@@ -22,4 +22,6 @@ export class AppComponent {
   ngOnInit(){
     this.isLoading = this.store.select('ui')
   }
+
+
 }

@@ -33,7 +33,8 @@
                 </div>
                 <!-- home button -->
                 <div class="ml">
-                    <a routerLink="home" class="nolink"><button mat-stroked-button matTooltip="Must be logged in">Home</button></a>
+                    <button *ngIf="!(authState | async).authenticated" mat-stroked-button matTooltip="Must be logged in" (click)="notLoggedInSnackBar('home page')">Home</button>
+                    <a *ngIf="(authState | async).authenticated" routerLink="home" class="nolink"><button mat-stroked-button color="primary">Home</button></a>
                     <!-- <a routerLink="home" [ngClass]="{disabled : !(authState | async).authenticated}"><button mat-stroked-button color="primary" [disabled]="!(authState | async).authenticated">Home</button></a> -->
                 </div>
             </div>
@@ -92,8 +93,8 @@
             <div class="" fxLayout="row">
                 <div class="">
                     <!-- profile button -->
-                    <a routerLink="profile" class="nolink"><button mat-stroked-button matTooltip="Must be logged in">Profile</button></a>
-                    <!-- <a routerLink="profile" [ngClass]="{disabled : !(authState | async).authenticated}"><button mat-stroked-button color="primary" [disabled]="!(authState | async).authenticated">Profile</button></a> -->
+                    <button *ngIf="!(authState | async).authenticated" mat-stroked-button matTooltip="Must be logged in" (click)="notLoggedInSnackBar('profile page')">Profile</button>
+                    <a *ngIf="(authState | async).authenticated" routerLink="profile" class="nolink"><button mat-stroked-button color="primary">Profile</button></a>
                 </div>
                 <div fxLayout="column"> 
                     <!-- verify account description -->
@@ -131,7 +132,8 @@
     <div class="container" fxLayout="row">
         <div class="" fxLayout="column" fxLayoutAlign="start center">
             <!--/// profile button ///-->
-            <a routerLink="profile" class="nolink"><button mat-stroked-button matTooltip="Must be logged in">Profile</button></a>
+            <button *ngIf="!(authState | async).authenticated" mat-stroked-button matTooltip="Must be logged in" (click)="notLoggedInSnackBar('profile page')">Profile</button>
+            <a *ngIf="(authState | async).authenticated" routerLink="profile" class="nolink"><button mat-stroked-button color="primary">Profile</button></a>
             <!-- <button mat-stroked-button color="primary" routerLink="profile" [disabled]="!(authState | async).authenticated" >Profile</button> -->
             <br>
             <!--/// arrows ///-->
@@ -143,14 +145,15 @@
             <br>
             <div class="" fxLayout="row">
                 <!--/// change password button ///-->
-                <a class="nolink" routerLink="change-password"><button mat-stroked-button matTooltip="Must be logged in">Change Password</button></a>
+                <button *ngIf="!(authState | async).authenticated" mat-stroked-button matTooltip="Must be logged in" (click)="notLoggedInSnackBar('change password')">Change Password</button>
+                <a *ngIf="(authState | async).authenticated" routerLink="change-password" class="nolink"><button mat-stroked-button color="primary">Change Password</button></a>
                 <!-- <button mat-stroked-button color="primary" routerLink="change"   [disabled]="!(authState | async).authenticated" >Change Password</button> -->
                 <div  class="ml" fxLayout="column"> 
-                    <a class="nolink"><button mat-stroked-button matTooltip="Must be logged in">Resend Verify</button></a>
+                    <button  mat-stroked-button matTooltip="Not integrated yet" (click)="customSnackBar('Not integrated yet.')">Resend Verify</button>
                     <!-- <small fxFlexAlign="end">(Reset Password)</small> -->
                 </div>
                 <div class="ml">
-                    <a class="nolink"><button mat-stroked-button matTooltip="Must be logged in">Update User Details</button></a>
+                    <button  mat-stroked-button matTooltip="Not integrated yet" (click)="customSnackBar('Not integrated yet.')">Update User Details</button>
                 </div>
             </div>
         </div>
@@ -158,9 +161,6 @@
 
     </div><!--container-->
     <br>
-
-
-
 
 
 

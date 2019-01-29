@@ -5,12 +5,14 @@ export interface State {
   isLoading: boolean;
   headerString: string;
   editingItem: boolean;
+  snackString: string;
 };
 
 const initialState: State = {
   isLoading: false,
   headerString: '',
-  editingItem: false
+  editingItem: false,
+  snackString: null,
 };
 
 export function uiReducer(state = initialState, action: UIActions.UIActions) {
@@ -34,6 +36,11 @@ export function uiReducer(state = initialState, action: UIActions.UIActions) {
       return {
         ...state,
         editingItem: action.payload
+      };
+    case UIActions.SNACK_BAR:
+      return {
+        ...state,
+        snackString: action.payload
       };
     default: {
       return state;

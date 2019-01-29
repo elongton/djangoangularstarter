@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as fromRoot from '../store/app.reducer';
 import * as fromAuth from '../auth/store/auth.reducer';
+import * as UIActions from '../shared/store/ui/ui.actions';
 // import * as fromUser from '../user/store/user.reducer';
 import { AuthHttpService } from '../auth/auth-http.service';
 import { CookieService } from 'angular2-cookie/core';
@@ -46,6 +47,14 @@ export class WorkflowSampleRemovemeComponent implements OnInit {
   resetPassword(){
     console.log("send user an email and notify that the email was sent");
   }
+
+  notLoggedInSnackBar(message:string){
+    this.store.dispatch(new UIActions.SnackBar('Must be logged in to access ' + message + '.'))
+  }
+  customSnackBar(message:string){
+    this.store.dispatch(new UIActions.SnackBar(message));
+  }
+
 
   setCookie(){this.cookie.put('test', 'testing cookie');}
   getCookie(){console.log(this.cookie.get('test'))}

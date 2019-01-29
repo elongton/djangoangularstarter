@@ -20,24 +20,13 @@ export class AuthInterceptor implements HttpInterceptor {
       flatMap(authState => {
         console.log(authState.token)
         const authReq = !!authState.token ? req.clone({
-          setHeaders: { Authorization: 'Token ' + authState.token },
+          setHeaders: { Authorization: 'JWT ' + authState.token },
         }) : req;
         console.log(authReq)
         return next.handle(authReq);
       }),
     );
 
+  }//intercept
 
-
-
-    console.log("intercepted!", req)
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type':  'application/json',
-        'token': 'a token',
-      })
-    };
-    const copiedRequest = req.clone(httpOptions);
-    return next.handle(copiedRequest);
-  }
-}
+}//AuthInterceptor
